@@ -144,11 +144,9 @@ const Home: NextPage = () => {
             }
           />
 
-
-
           {!loading && (
             <button
-              className="bg-black rounded-xl text-white font-medium px-4 py-2 sm:mt-10 mt-8 hover:bg-black/80 w-full"
+              className="bg-black rounded-xl text-white font-medium px-4 py-2 sm:mt-5 mt-8 hover:bg-black/80 w-full"
               onClick={(e) => generateChat(e)}
             >
               {t('simplifierButton')} &rarr;
@@ -162,6 +160,8 @@ const Home: NextPage = () => {
               <LoadingDots color="white" style="large" />
             </button>
           )}
+          <br></br>
+          <br></br>
           <div className="mt-1 items-center space-x-3">
             <span className="text-slate-200">
                 {t('privacyPolicy1')}

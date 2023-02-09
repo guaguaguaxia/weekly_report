@@ -1,9 +1,9 @@
-# [Weekly Report](https://chat-simplifier.vercel.app/)
+# [Weekly Report](https://weeklyreport.avemaria.fun/)
 [![](https://img.shields.io/badge/chat-on%20discord-7289da.svg?sanitize=true)](https://chat.imzbb.cc)
 
 This project simplify chat content for you using AI.
 
-[![Chat Simplifier](./public/screenshot.png)](https://chat-simplifier.vercel.app/)
+[![Weekly Report](./public/screenshot.jpg)](https://weeklyreport.avemaria.fun/zh)
 
 ## How it works
 
