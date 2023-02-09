@@ -34,15 +34,7 @@ export default function Header() {
           </div>
         )
       }
-      {" / "}
-        <a
-          className="relative font-medium text-black-600 before:absolute before:-bottom-1 before:h-0.5 before:w-full before:scale-x-0 before:bg-indigo-600 before:transition hover:before:scale-x-100"
-          href="https://github.com/zhengbangbo/chat-simplifier/blob/main/README.md#one-click-deploy"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <p>{t('deployWiki')}</p>
-        </a>
+
       </div>
 
 
