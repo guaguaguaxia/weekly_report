@@ -1,7 +1,7 @@
 {
   "Index": {
     "title": "周报生成器",
-    "switchLocale": "{locale, select,zh {中文} en {English} other {}}",
+    "switchLocale": "",
     "deployWiki": "部署自己的网站？",
     "description1": "简单描述工作内容 ",
     "description2": "帮你生成完整周报",
