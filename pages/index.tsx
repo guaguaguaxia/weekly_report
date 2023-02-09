@@ -200,7 +200,7 @@ const Home: NextPage = () => {
                         });
                       }}
                     >
-                      <p>{generatedChat}</p>
+                      <p className="sty1">{generatedChat}</p>
                     </div>
                   </div>
                 </>

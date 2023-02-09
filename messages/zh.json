@@ -10,7 +10,7 @@
     "openaiApiKeyPlaceholder": "sk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "step1": "简单描述一下你的工作",
     "helpPageLink": "(点击这里查看教程)",
-    "placeholder": "比如：修复了优惠券无法领取的bug，完成了管理后台订单模块查询和修改的接口，完善了登录流程的监控",
+    "placeholder": "比如：修复了优惠券无法领取的bug，为产品部的新APP设计UI和图标，负责跟进部门前端工程师的招聘",
     "step2": "选择输出结果的形式。",
     "simplifierButton": "生成完整周报",
     "simplifiedContent": "优化后的内容",

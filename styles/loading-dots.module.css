@@ -56,6 +56,9 @@
   animation-delay: 0.4s;
 }
 
+.sty1 {
+  white-space: pre-line;
+}
 @keyframes blink {
   0% {
     opacity: 0.2;
