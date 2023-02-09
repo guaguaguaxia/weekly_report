@@ -167,7 +167,7 @@ const Home: NextPage = () => {
                 {t('privacyPolicy1')}
               <a
                 className="text-blue-200 hover:text-blue-400"
-                href="https://github.com/zhengbangbo/chat-simplifier/wiki/Privacy-Policy"
+                href="https://github.com/guaguaguaxia/weekly_report/blob/main/privacy.md"
                 target="_blank"
                 rel="noopener noreferrer"
               >{' '}{t('privacyPolicy2')}</a>
