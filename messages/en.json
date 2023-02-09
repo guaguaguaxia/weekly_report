@@ -1,0 +1,25 @@
+{
+  "Index": {
+    "title": "Chat Simplifier",
+    "switchLocale": "{locale, select,zh {中文} en {English} other {}}",
+    "deployWiki": "Deploy your own website?",
+    "description": "Simplify your chat content in seconds",
+    "slogan": "Too many group messages? It's too long to look!",
+    "step0": "Paste your OpenAI API Key",
+    "openaiApiKeyPlaceholder": "sk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "step1": "Paste your chat content",
+    "helpPageLink": "(Click here to view tutorials)",
+    "placeholder": "Choose more chat content and copy it. It usually contains nicknames, times, and content.",
+    "step2": "Select the form of the output.",
+    "simplifierButton": "Simplify the chat content",
+    "privacyPolicy1": "It is not recommended to upload chat that is too private. For more information, please see",
+    "privacyPolicy2": "Privacy Statement",
+    "simplifiedContent": "Simplified content",
+    "paragraphForm": "Paragraph",
+    "paragraphFormPrompt": "Please summarize the chat content between <|start|> and <|end|>. It is required to be concise and to the point and output in the form of a paragraph.\n\n<|start|>",
+    "outlineForm": "Outline",
+    "outlineFormPrompt": "Please summarize the chat content between <|start|> and <|end|>. It is required to be concise and output in the form of an outline containing a list.\n\n<|start|>",
+    "pasteButton": "Paste",
+    "clearButton": "Clear"
+  }
+}

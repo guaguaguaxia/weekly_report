@@ -1,0 +1,25 @@
+{
+  "Index": {
+    "title": "聊天内容简化器",
+    "switchLocale": "{locale, select,zh {中文} en {English} other {}}",
+    "deployWiki": "部署自己的网站？",
+    "description": "简化您的聊天内容",
+    "slogan": "群消息太多？太长不看！",
+    "step0": "粘贴你的 OpenAI API Key",
+    "openaiApiKeyPlaceholder": "sk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "step1": "粘贴你的聊天内容",
+    "helpPageLink": "(点击这里查看教程)",
+    "placeholder": "多选聊天内容，复制。通常包含昵称、时间和内容。",
+    "step2": "选择输出结果的形式。",
+    "simplifierButton": "简化聊天内容",
+    "simplifiedContent": "简化后的内容",
+    "privacyPolicy1": "不建议上传过于隐私的聊天内容，详情查看",
+    "privacyPolicy2": "《隐私声明》",
+    "paragraphForm": "段落",
+    "paragraphFormPrompt": "请总结<|start|>与<|end|>之间的聊天内容。要求简明扼要，以一段话的形式输出。\n\n<|start|>",
+    "outlineForm": "大纲",
+    "outlineFormPrompt": "请总结<|start|>与<|end|>之间的聊天内容。要求简明扼要，以包含列表的大纲形式输出。\n\n<|start|>",
+    "pasteButton": "粘贴",
+    "clearButton": "清空"
+  }
+}
