@@ -1,5 +1,5 @@
 # [Weekly Report](https://weeklyreport.avemaria.fun/)
-[![](https://img.shields.io/badge/chat-on%20discord-7289da.svg?sanitize=true)](https://chat.imzbb.cc)
+
 
 This project simplify chat content for you using AI.
 
