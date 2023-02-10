@@ -1,7 +1,7 @@
 # [Weekly Report](https://weeklyreport.avemaria.fun/)
 
 
-This project simplify chat content for you using AI.
+This project generate weekly report with simple sentence for you using AI.
 
 [![Weekly Report](./public/screenshot.jpg)](https://weeklyreport.avemaria.fun/zh)
 
