@@ -22,6 +22,7 @@
     "outlineForm": "大纲",
     "outlineFormPrompt": "请总结<|start|>与<|end|>之间的聊天内容。要求简明扼要，以包含列表的大纲形式输出。\n\n<|start|>",
     "pasteButton": "粘贴",
-    "clearButton": "清空"
+    "clearButton": "清空",
+    "notice":"现在访问量激增服务会不稳定，可以先收藏此网站，闲时再用，大家太热情了，随手发布的项目收获到了远超预想的关注。"
   }
 }
