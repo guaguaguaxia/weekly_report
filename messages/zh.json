@@ -18,7 +18,7 @@
     "privacyPolicy2": "《隐私声明》",
     "paragraphForm": "段落",
     "paragraphFormPrompt": "请总结<|start|>与<|end|>之间的聊天内容。要求简明扼要，以一段话的形式输出。\n\n<|start|>",
-    "prompt": "请帮我把以下的工作内容填充为一篇完整的周报,以分点叙述的形式输出:",
+    "prompt": "请帮我把以下的工作内容填充为一篇完整的周报,用 markdown 格式以分点叙述的形式输出:",
     "outlineForm": "大纲",
     "outlineFormPrompt": "请总结<|start|>与<|end|>之间的聊天内容。要求简明扼要，以包含列表的大纲形式输出。\n\n<|start|>",
     "pasteButton": "粘贴",

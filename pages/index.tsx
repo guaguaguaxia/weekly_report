@@ -12,6 +12,7 @@ import Github from "../components/GitHub";
 import Header from "../components/Header";
 import LoadingDots from "../components/LoadingDots";
 import ResizablePanel from "../components/ResizablePanel";
+import { marked } from "marked";
 
 const Home: NextPage = () => {
   const t = useTranslations('Index')
@@ -201,7 +202,17 @@ const Home: NextPage = () => {
                         });
                       }}
                     >
-                      <p className="sty1">{generatedChat}</p>
+                      {/* <p className="sty1">{generatedChat}</p> */}
+                      <p
+                        className="sty1 markdown-body"
+                        dangerouslySetInnerHTML={{
+                          __html: marked(generatedChat.toString(), {
+                            gfm: true,
+                            breaks: true,
+                            smartypants: true
+                          }),
+                        }}
+                      ></p>
                     </div>
                   </div>
                 </>
