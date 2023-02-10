@@ -19,6 +19,16 @@ Then, run the application in the command line and it will be available at `http:
 npm run dev
 ```
 
+## One-Click Deploy
+
+Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://vercel.com/new/clone?repository-url=https://github.com/guaguaguaxia/weekly_report&env=OPENAI_API_KEY,NEXT_PUBLIC_USE_USER_KEY,OPENAI_MODEL&project-name=weekly_report&repo-name=weekly_report)
+
+NEXT_PUBLIC_USE_USER_KEY = false
+OPENAI_MODEL = text-davinci-003
+
+<!-- https://www.seotraininglondon.org/gpt3-business-email-generator/ -->
 
 ## Credits
 
