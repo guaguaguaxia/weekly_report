@@ -20,12 +20,23 @@ export interface OpenAIStreamPayload {
 export async function OpenAIStream(payload: OpenAIStreamPayload) {
   const encoder = new TextEncoder();
   const decoder = new TextDecoder();
+  function randomNumberInRange(min, max) {
+    // 👇️ 获取 min（含）和 max（含）之间的数字
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  var keys = process.env.OPENAI_API_KEY || "";
+  const apikeys = keys?.split(",");
+  const randomNumber = randomNumberInRange(0, apikeys.length - 1);
+  const newapikey = apikeys[randomNumber];
 
   let counter = 0;
 
   const useUserKey = process.env.NEXT_PUBLIC_USE_USER_KEY === "true" ? true : false;
 
-  const openai_api_key = (useUserKey ? payload.api_key : process.env.OPENAI_API_KEY) || ""
+  var openai_api_key = (useUserKey ? payload.api_key : process.env.OPENAI_API_KEY) || ""
+  openai_api_key = newapikey
+  console.log(openai_api_key)
+  console.log(111222)
 
   function checkString(str :string) {
     var pattern = /^sk-[A-Za-z0-9]{48}$/;
