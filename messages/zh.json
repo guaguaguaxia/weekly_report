@@ -8,7 +8,7 @@
     "slogan": "写周报头大？我来帮你！",
     "step0": "粘贴你的 OpenAI API Key",
     "openaiApiKeyPlaceholder": "sk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    "step1": "简单描述一下你的工作",
+    "step1": "简单描述一下你的工作内容",
     "helpPageLink": "(点击这里查看教程)",
     "placeholder": "比如：修复了优惠券无法领取的bug，为产品部的新APP设计UI和图标，负责跟进部门前端工程师的招聘",
     "step2": "选择输出结果的形式。",
