@@ -114,6 +114,31 @@ const Home: NextPage = () => {
         </h1>
         <p className="text-slate-500 mt-5">{t('slogan')}</p>
 
+        <p className="text-slate-1000 mt-5 sm:text-2xl" >
+          此功能于2023-02-15 00:00:00暂时下线<br></br>
+        <br></br>
+        </p>
+        <p className="text-slate-1000 mt-5 " style={{textAlign: "left"}}>
+
+        1.为什么这么匆忙下线？<br></br>
+        ①.由于此网站的使用人数以不可思议的速度飙升，作者无力承担随之而来的运营成本。②.产品存在合规风险，个人开发者无力应对审查机制。<br></br>
+        <br></br>
+        2.为什么不做商业化？我可以给钱<br></br>
+        如果我平时就抱着赚钱的心态、寻找着赚钱的方法，那这款产品也大概率不会诞生。我是纯粹以好玩的角度出发而产生的灵感，本来就是想着人不会太多随便玩玩。
+        这个项目没有技术门槛，代码都是开源的，做商业化不仅麻烦且很快就会有同质产品，赚不了多少钱。<br></br>
+        <br></br>
+        3.既然是暂时下线，那什么时候回来？<br></br>
+        什么时候国内有类ChatGPT能力的产品、且API价格可以接受就什么时候回来，不过那时候此产品可能也将失去意义。<br></br>
+        <br></br>
+        4.我迫切需要这个功能，你有什么办法能让我用上吗？<br></br>
+        想办法搞个ChatGPT账号自己问。<br></br>
+        <br></br>
+        5.你这么好给我们免费用了这么多天，我要怎么回报你？ (我有一个朋友，他就是这么问我的，真的，不骗你！）<br></br>
+        在GitHub上Star此项目、在GitHub上follow我就是对我最大的支持。<br></br>
+        <br></br>
+        还有什么想说想问的都可以通过邮箱guaguaguaxia@Gmail.com联系我。
+        </p>
+
         <div className="max-w-xl w-full">
           { useUserKey &&(
             <>
@@ -155,19 +180,12 @@ const Home: NextPage = () => {
           {!loading && (
             <button
               className="bg-black rounded-xl text-white font-medium px-4 py-2 sm:mt-5 mt-8 hover:bg-black/80 w-full"
-              onClick={(e) => generateChat(e)}
+              
             >
               {t('simplifierButton')} &rarr;
             </button>
           )}
-          {loading && (
-            <button
-              className="bg-black rounded-xl text-white font-medium px-4 py-2 sm:mt-10 mt-8 hover:bg-black/80 w-full"
-              disabled
-            >
-              <LoadingDots color="white" style="large" />
-            </button>
-          )}
+          
           <br></br>
           <br></br>
           <div className="mt-1 items-center space-x-3">
