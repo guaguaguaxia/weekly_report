@@ -135,7 +135,7 @@ const Home: NextPage = () => {
               width={30}
               height={30}
               alt="1 icon"
-              className="mb-5 sm:mb-0"
+              className="mb-5 xs:mb-0"
             />
             <p className="text-left font-medium">
               {t('step1')}{" "}
