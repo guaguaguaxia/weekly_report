@@ -136,7 +136,7 @@ const Home: NextPage = () => {
         5.你这么好给我们免费用了这么多天，我要怎么回报你？ (我有一个朋友，他就是这么问我的，真的，不骗你！）<br></br>
         在GitHub上Star此项目、在GitHub上follow我就是对我最大的支持。<br></br>
         <br></br>
-        还有什么想说想问的都可以通过邮箱guaguaguaxia@Gmail.com联系我。
+        还有什么想说想问的都可以通过邮箱guaguaguaxia@Gmail.com联系我，我会一一回复
         </p>
 
         <div className="max-w-xl w-full">
