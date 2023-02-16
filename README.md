@@ -1,6 +1,6 @@
 # [Weekly Report](https://weeklyreport.avemaria.fun/)
 
-## [English]("[README_EN.md](https://github.com/guaguaguaxia/weekly_report/blob/main/README_EN.md)")
+## [English](README_EN.md)
 
 简单描述工作内容，帮你生成完整周报
 
