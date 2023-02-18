@@ -13,7 +13,6 @@
 
 clone此repo，去 [OpenAI](https://beta.openai.com/account/api-keys) 注册一个账号，拿到API key，放到`.env`文件。本地文件`.env.example`要改成`.env`。
 
-去[此commit](https://github.com/guaguaguaxia/weekly_report/commit/e0ec0f20aa43061802968888b2613206d85d6a80)下恢复我下线网站前的代码
 
 确保你本地的npm命令生效，执行以下命令
 ```bash
@@ -28,8 +27,6 @@ npm run dev
 用 [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples) 一键部署:
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/guaguaguaxia/weekly_report&env=OPENAI_API_KEY,NEXT_PUBLIC_USE_USER_KEY,OPENAI_MODEL&project-name=weekly_report&repo-name=weekly_report)
-
-去[此commit](https://github.com/guaguaguaxia/weekly_report/commit/e0ec0f20aa43061802968888b2613206d85d6a80)下恢复我下线网站前的代码
 
 环境变量如下所示：
 ```
