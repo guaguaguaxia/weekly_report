@@ -35,8 +35,6 @@ export async function OpenAIStream(payload: OpenAIStreamPayload) {
 
   var openai_api_key = (useUserKey ? payload.api_key : process.env.OPENAI_API_KEY) || ""
   openai_api_key = newapikey
-  console.log(openai_api_key)
-  console.log(111222)
 
   function checkString(str :string) {
     var pattern = /^sk-[A-Za-z0-9]{48}$/;
