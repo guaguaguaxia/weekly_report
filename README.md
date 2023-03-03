@@ -11,6 +11,8 @@
 
 ## 在本地运行
 
+**由于众所周知的原因，OpenAI API的域名api.openai.com已无法在大陆网络环境下访问，本地调试需要自己想办法**
+
 clone此repo，去 [OpenAI](https://beta.openai.com/account/api-keys) 注册一个账号，拿到API key，放到`.env`文件。本地文件`.env.example`要改成`.env`。
 
 
