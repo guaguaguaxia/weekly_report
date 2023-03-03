@@ -22,9 +22,9 @@ const handler = async (req: Request): Promise<Response> => {
     return new Response("No prompt in the request", { status: 400 });
   }
 
-  if (!process.env.OPENAI_MODEL) {
-    throw new Error("Missing env var from OpenAI")
-  }
+  // if (!process.env.OPENAI_MODEL) {
+  //   throw new Error("Missing env var from OpenAI")
+  // }
 
   const payload: OpenAIStreamPayload = {
     model: "gpt-3.5-turbo",
