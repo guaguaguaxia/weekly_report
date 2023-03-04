@@ -7,16 +7,16 @@
 [![Weekly Report](./public/screenshot.jpg)](https://weeklyreport.avemaria.fun/zh)
 
 ## 这个项目是如何工作的
-这个项目主要使用了 [OpenAI GPT-3 API](https://openai.com/api/) 和 [Vercel Edge functions](https://vercel.com/features/edge-functions)。它根据用户输入构建一个Prompt，通过Vercel Edge函数将其发送到GPT-3 API，然后将响应流传回应用程序。
+这个项目主要使用了 [OpenAI GPT-3 API](https://openai.com/api/) 和 [Vercel Edge functions](https://vercel.com/features/edge-functions)。它根据用户输入构建一个 Prompt，通过 Vercel Edge 函数将其发送到 GPT-3 API，然后将响应流传回应用程序。
 
 ## 在本地运行
 
-**由于众所周知的原因，OpenAI API的域名api.openai.com已无法在大陆网络环境下访问，本地调试需要自己想办法**
+**由于众所周知的原因，OpenAI API 的域名 api.openai.com 已无法在大陆网络环境下访问，本地调试需要自己想办法**
 
-clone此repo，去 [OpenAI](https://beta.openai.com/account/api-keys) 注册一个账号，拿到API key，放到`.env`文件。本地文件`.env.example`要改成`.env`。
+clone 此 repo，去 [OpenAI](https://beta.openai.com/account/api-keys) 注册一个账号，拿到 API key，放到 `.env` 文件。本地文件 `.env.example` 要改成 `.env`。
 
 
-确保你本地的npm命令生效，执行以下命令
+确保你本地的 npm 命令生效，执行以下命令
 ```bash
 npm install
 npm run dev
