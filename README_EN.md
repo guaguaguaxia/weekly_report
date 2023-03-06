@@ -27,6 +27,24 @@ Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_mediu
 
 NEXT_PUBLIC_USE_USER_KEY = false
 
+## Docker Deployment
+
+```bash
+docker run -d -p 3000:3000 --name weekly_report-docker -e OPENAI_API_KEY=sk-xxxxx ihxrainbow/weekly_report-docker
+```
+
+docker-compose.yml
+```yaml
+services:
+  weekly_report-docker:
+    container_name: weekly_report-docker
+    ports:
+      - '3000:3000'
+    image: ihxrainbow/weekly_report-docker
+    environment:
+      # API key
+      - OPENAI_API_KEY=sk-xxxxx
+```
 
 <!-- https://www.seotraininglondon.org/gpt3-business-email-generator/ -->
 
