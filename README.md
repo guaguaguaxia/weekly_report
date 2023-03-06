@@ -57,6 +57,10 @@ services:
 
 <!-- https://www.seotraininglondon.org/gpt3-business-email-generator/ -->
 
+## 一些数据
+
+[![Weekly Report](./public/2023-03-06-data.jpg)](https://weeklyreport.avemaria.fun/zh)
+
 ## 感谢
 
 受 [TwtterBio](https://github.com/Nutlope/twitterbio) 和 [zhengbangbo](https://github.com/zhengbangbo/chat-simplifier) 启发.
