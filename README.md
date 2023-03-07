@@ -11,7 +11,7 @@
 
 ## 在本地运行
 
-**由于众所周知的原因，OpenAI API 的域名 api.openai.com 已无法在大陆网络环境下访问，本地调试需要自己想办法**
+**由于众所周知的原因，OpenAI API 的域名 api.openai.com 已无法在大陆网络环境下访问，本地调试需要自己想办法。如果你有好的想法欢迎提PR**
 
 clone 此 repo，去 [OpenAI](https://beta.openai.com/account/api-keys) 注册一个账号，拿到 API key，放到 `.env` 文件。本地文件 `.env.example` 要改成 `.env`。
 
@@ -59,10 +59,10 @@ services:
 
 ## 一些数据
 
-[![Weekly Report](./public/2023-03-06-data.jpg)](https://weeklyreport.avemaria.fun/zh)
+[![Weekly Report](./public/2023-03-06-data.jpg)]
 
 ## 感谢
 
-受 [TwtterBio](https://github.com/Nutlope/twitterbio) 和 [zhengbangbo](https://github.com/zhengbangbo/chat-simplifier) 启发.
+受 [TwtterBio](https://github.com/Nutlope/twitterbio) 和 [chat-simplifier](https://github.com/zhengbangbo/chat-simplifier) 启发.
 
 
