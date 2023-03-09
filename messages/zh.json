@@ -14,7 +14,7 @@
     "step2": "选择输出结果的形式。",
     "simplifierButton": "生成完整周报",
     "simplifiedContent": "优化后的内容",
-    "privacyPolicy1": "请勿上传过于隐私的工作内容，详情查看",
+    "privacyPolicy1": "请勿上传过于隐私的工作内容，详情请查看",
     "privacyPolicy2": "《隐私声明》",
     "paragraphForm": "段落",
     "paragraphFormPrompt": "请总结<|start|>与<|end|>之间的聊天内容。要求简明扼要，以一段话的形式输出。\n\n<|start|>",

@@ -196,6 +196,8 @@ const Home: NextPage = () => {
                 rel="noopener noreferrer"
               >{' '}{t('privacyPolicy2')}</a>
             </span>
+            <br/><br/>
+            <p className="text-slate-300">不能生成周报时请刷新页面，如果刷新三次后仍不能正常工作，请联系我的邮箱 guaguaguaxia@Gmail.com</p>
           </div>
         </div>
         <Toaster
