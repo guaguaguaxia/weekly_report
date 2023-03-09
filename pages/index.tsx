@@ -121,8 +121,7 @@ const Home: NextPage = () => {
         <h1 className="sm:text-6xl text-4xl max-w-2xl font-bold text-slate-900">
           {t('description1')} <br></br><div className=" px-4 py-2 sm:mt-3 mt-8  w-full"></div>{t('description2')}
         </h1>
-        <p className="text-slate-500 mt-5">{t('slogan')}<br/><br/>
-        由于 OpenAI 正在大规模封号，暂时需要先由用户提供API KEY</p>
+        <p className="text-slate-500 mt-5">{t('slogan')}</p>
 
 
         <div className="max-w-xl w-full">
