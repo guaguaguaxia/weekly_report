@@ -197,6 +197,8 @@ const Home: NextPage = () => {
               >{' '}{t('privacyPolicy2')}</a>
             </span>
             <br/><br/>
+            <p className="text-slate-500">本网站仅在周一、周五、周日免费生成周报，其余时间请自备 OpenAI API Key</p>
+            <br/>
             <p className="text-slate-300">不能生成周报时请刷新页面后重试，有任何问题请联系我的邮箱 guaguaguaxia@Gmail.com</p>
           </div>
         </div>
