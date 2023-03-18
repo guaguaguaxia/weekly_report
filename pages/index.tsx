@@ -71,7 +71,9 @@ const Home: NextPage = () => {
     console.log("Edge function returned.");
 
     if (!response.ok) {
-      throw new Error(response.statusText);
+      toast.error("服务繁忙，请稍后再试")
+      setLoading(false);
+      return
     }
 
     // This data is a ReadableStream
