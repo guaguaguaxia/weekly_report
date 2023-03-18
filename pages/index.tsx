@@ -197,6 +197,8 @@ const Home: NextPage = () => {
               >{' '}{t('privacyPolicy2')}</a>
             </span>
             <br/><br/>
+            <p className="text-slate-500">由于费用过高，本网站一分钟仅接受 20 次请求，请尽量收藏此网站后在低峰期使用</p>
+            <br/>
             <p className="text-slate-500">本网站仅于周一、五、六、日免费使用，其余时间请自备 OpenAI API Key，有任何问题请联系我的邮箱 guaguaguaxia@Gmail.com，我会一一回复</p>
             <br/>
           </div>
