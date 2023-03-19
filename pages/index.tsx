@@ -226,7 +226,7 @@ const Home: NextPage = () => {
                       className="bg-white rounded-xl shadow-md p-4 hover:bg-gray-100 transition cursor-copy border"
                       onClick={() => {
                         navigator.clipboard.writeText(generatedChat.trim());
-                        toast("内容已复制到剪切板", {
+                        toast("已复制完整周报内容", {
                           icon: "✂️",
                         });
                       }}
