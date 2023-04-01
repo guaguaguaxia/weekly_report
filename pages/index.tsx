@@ -200,8 +200,7 @@ const Home: NextPage = () => {
             </span>
             <br></br>
             
-            <br/>
-            <p className="text-slate-500" style={{textAlign: "center"}}>由于 OpenAI 限制，暂时无法提供免费生成服务</p>
+
 
             <br/>
             <p className="text-slate-500" style={{textAlign: "center"}}>由于费用过高，本站一分钟内仅接受 20 次请求，迟迟不能生成周报是因为暂时限流，请收藏此网站后在低峰期使用。有任何问题请联系我的邮箱 guaguaguaxia@Gmail.com，我会一一回复。</p>
