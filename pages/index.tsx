@@ -203,7 +203,7 @@ const Home: NextPage = () => {
 
 
             <br/>
-            <p className="text-slate-1000" style={{textAlign: "center"}}>作者由于种种原因已失去维护此网站的意愿，该网站功能暂时下线。有任何问题请联系我的邮箱 guaguaguaxia@Gmail.com。</p>
+            <p className="text-slate-1000" style={{textAlign: "center"}}>由于种种原因作者已失去维护此网站的意愿，该网站功能暂时下线。有任何问题请联系我的邮箱 guaguaguaxia@Gmail.com。</p>
 
           </div>
         </div>
