@@ -173,7 +173,7 @@ const Home: NextPage = () => {
           {!loading && (
             <button
               className="bg-black rounded-xl text-white font-medium px-4 py-2 sm:mt-5 mt-8 hover:bg-black/80 w-full"
-              // onClick={(e) => generateChat(e)}
+              onClick={(e) => generateChat(e)}
             >
               {t('simplifierButton')} &rarr;
             </button>
@@ -203,7 +203,7 @@ const Home: NextPage = () => {
 
 
             <br/>
-            <p className="text-slate-1000" style={{textAlign: "center"}}>由于种种原因作者已失去维护此网站的意愿，该网站功能暂时下线。有任何问题请联系我的邮箱 guaguaguaxia@Gmail.com。</p>
+            <p className="text-slate-1000" style={{textAlign: "center"}}>由于费用过高，本站一分钟内仅接受 20 次请求，迟迟不能生成周报是因为暂时限流，请收藏此网站后在低峰期使用。有任何问题请联系我的邮箱 guaguaguaxia@Gmail.com，我会一一回复。</p>
 
           </div>
         </div>
