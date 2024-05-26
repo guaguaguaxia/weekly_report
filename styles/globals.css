@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.right {
+    float: right; /* Aligns the image to the right */
+    margin-left: auto; /* Pushes the image to the right edge of its container */
+    display: block; /* Ensures the image is treated as a block-level element */
+}
