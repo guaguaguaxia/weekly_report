@@ -34,7 +34,17 @@ export default function Header() {
           </div>
         )
       }
-
+    <Link href="https://www.xiaobaotong.vip/" className="flex space-x-3" legacyBehavior>
+      <a target="_blank" rel="noopener noreferrer">
+        <Image
+              alt="header text"
+              src="/logo.svg"
+              className="sm:w-12 sm:h-12 w-8 h-8"
+              width={32}
+              height={32}
+            />
+      </a>
+    </Link>
       </div>
 
 
