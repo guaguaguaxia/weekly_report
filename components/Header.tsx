@@ -29,7 +29,7 @@ export default function Header() {
       <Image
           alt="header text"
           src="/finger.svg"
-          className="sm:w-12 sm:h-12 w-8 h-8"
+          className="sm:w-12 sm:h-12 w-8 h-8 right"
           width={32}
           height={32}
         />
