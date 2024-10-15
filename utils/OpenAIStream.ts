@@ -54,7 +54,7 @@ export async function OpenAIStream(payload: OpenAIStreamPayload) {
   }
   delete payload.api_key
 
-  const res = await fetch("https://giegie.green/v1/chat/completions", {
+  const res = await fetch("http://15.204.101.64:4000/v1/chat/completions", {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${openai_api_key ?? ""}`,
