@@ -54,7 +54,7 @@ export async function OpenAIStream(payload: OpenAIStreamPayload) {
   }
   delete payload.api_key
 
-  const res = await fetch("http://15.204.101.64:4000/v1/chat/completions", {
+  const res = await fetch("https://api.moonshot.cn/v1/chat/completions", {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${openai_api_key ?? ""}`,
@@ -67,6 +67,7 @@ export async function OpenAIStream(payload: OpenAIStreamPayload) {
     async start(controller) {
       // callback
       function onParse(event: ParsedEvent | ReconnectInterval) {
+        console.log(event.type)
         if (event.type === "event") {
           const data = event.data;
           // https://beta.openai.com/docs/api-reference/completions/create#completions/create-stream
