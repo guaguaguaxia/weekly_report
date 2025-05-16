@@ -49,12 +49,12 @@ export async function OpenAIStream(payload: OpenAIStreamPayload) {
     var pattern = /^sk-[A-Za-z0-9]{48}$/;
     return pattern.test(str);
   }
-  if(!checkString(openai_api_key)) {
-    throw new Error('OpenAI API Key Format Error')
-  }
+  // if(!checkString(openai_api_key)) {
+  //   throw new Error('OpenAI API Key Format Error')
+  // }
   delete payload.api_key
 
-  const res = await fetch("https://api.moonshot.cn/v1/chat/completions", {
+  const res = await fetch("https://api.deepseek.com/v1/chat/completions", {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${openai_api_key ?? ""}`,
