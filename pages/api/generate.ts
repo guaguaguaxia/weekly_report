@@ -27,7 +27,7 @@ const handler = async (req: Request): Promise<Response> => {
   // }
 
   const payload: OpenAIStreamPayload = {
-    model: "deepseek-chat",
+    model: "deepseek/deepseek-chat-v3-0324:free",
     messages: [{ role: "user", content: prompt }],
     temperature: 0.7,
     top_p: 1,
