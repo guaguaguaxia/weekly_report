@@ -54,7 +54,7 @@ export async function OpenAIStream(payload: OpenAIStreamPayload) {
   // }
   delete payload.api_key
 
-  const res = await fetch("https://openrouter.ai/api/v1", {
+  const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${openai_api_key ?? ""}`,
