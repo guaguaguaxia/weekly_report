@@ -7,3 +7,10 @@
     margin-left: auto; /* Pushes the image to the right edge of its container */
     display: block; /* Ensures the image is treated as a block-level element */
 }
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}

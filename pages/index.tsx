@@ -2,17 +2,18 @@ import { AnimatePresence, motion } from "framer-motion";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslations } from 'next-intl'
 import { Toaster, toast } from "react-hot-toast";
 import DropDown, { FormType } from "../components/DropDown";
 import Footer from "../components/Footer";
 import Github from "../components/GitHub";
-
 import Header from "../components/Header";
 import LoadingDots from "../components/LoadingDots";
 import ResizablePanel from "../components/ResizablePanel";
+import HistoryPanel from "../components/HistoryPanel";
 import { marked } from "marked";
+import { HistoryStorage, HistoryRecord } from "../utils/historyStorage";
 
 const Home: NextPage = () => {
   const t = useTranslations('Index')
@@ -22,6 +23,19 @@ const Home: NextPage = () => {
   const [form, setForm] = useState<FormType>("paragraphForm");
   const [api_key, setAPIKey] = useState("")
   const [generatedChat, setGeneratedChat] = useState<String>("");
+  const [isFromHistory, setIsFromHistory] = useState(false);
+  const [showMobileHistory, setShowMobileHistory] = useState(false);
+  const [historyCount, setHistoryCount] = useState(0);
+
+  // 更新历史记录数量
+  const updateHistoryCount = () => {
+    setHistoryCount(HistoryStorage.getHistory().length);
+  };
+
+  // 组件挂载时加载历史记录数量
+  useEffect(() => {
+    updateHistoryCount();
+  }, []);
 
   console.log("Streamed response: ", generatedChat);
 
@@ -85,19 +99,39 @@ const Home: NextPage = () => {
     const reader = data.getReader();
     const decoder = new TextDecoder();
     let done = false;
+    let fullResponse = "";
 
     while (!done) {
       const { value, done: doneReading } = await reader.read();
       done = doneReading;
       const chunkValue = decoder.decode(value).replace("<|im_end|>", "");
+      fullResponse += chunkValue;
       setGeneratedChat((prev) => prev + chunkValue);
     }
 
     setLoading(false);
+    
+    // 保存到历史记录 - 使用完整的回复内容
+    if (fullResponse && chat && !isFromHistory) {
+      HistoryStorage.saveRecord(chat, fullResponse);
+      updateHistoryCount(); // 更新历史记录数量
+    }
+  };
+
+  const handleHistorySelect = (record: HistoryRecord) => {
+    setChat(record.input);
+    setGeneratedChat(record.output);
+    setIsFromHistory(true);
+    setShowMobileHistory(false); // 移动端选择后关闭历史面板
+  };
+
+  const handleNewGeneration = () => {
+    setIsFromHistory(false);
   };
 
   return (
-    <div className="flex max-w-5xl mx-auto flex-col items-center justify-center py-2 min-h-screen">
+    <div className="flex min-h-screen">
+      <div className="flex-1 flex flex-col max-w-5xl mx-auto items-center justify-center py-2">
       <Head>
         <title>{t('title')}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -170,12 +204,42 @@ const Home: NextPage = () => {
             }
           />
 
+          <div className="flex space-x-2 lg:hidden mt-3">
+            <button
+              onClick={() => setShowMobileHistory(!showMobileHistory)}
+              className="flex items-center space-x-2 px-3 py-2 text-sm bg-gray-100 rounded-lg hover:bg-gray-200"
+            >
+              <span>📋</span>
+              <span>历史记录</span>
+              {historyCount > 0 && (
+                <span className="bg-blue-500 text-white text-xs px-2 py-0.5 rounded-full">
+                  {historyCount}
+                </span>
+              )}
+            </button>
+          </div>
+
           {!loading && (
             <button
               className="bg-black rounded-xl text-white font-medium px-4 py-2 sm:mt-5 mt-8 hover:bg-black/80 w-full"
-              onClick={(e) => generateChat(e)}
+              onClick={(e) => {
+                handleNewGeneration();
+                generateChat(e);
+              }}
             >
-              {t('simplifierButton')} &rarr;
+              {isFromHistory ? '重新生成' : t('simplifierButton')} &rarr;
+            </button>
+          )}
+          {!loading && isFromHistory && (
+            <button
+              className="bg-gray-600 rounded-xl text-white font-medium px-4 py-2 mt-3 hover:bg-gray-700 w-full"
+              onClick={(e) => {
+                setChat(chat);
+                handleNewGeneration();
+                generateChat(e);
+              }}
+            >
+              编辑并重新生成 &rarr;
             </button>
           )}
           {loading && (
@@ -253,6 +317,40 @@ const Home: NextPage = () => {
         </ResizablePanel>
       </main>
       <Footer />
+      </div>
+      
+      {/* 右侧历史记录面板 - 桌面端 */}
+      <HistoryPanel 
+        onRecordSelect={handleHistorySelect}
+        className="hidden lg:flex"
+      />
+      
+      {/* 移动端历史记录面板 */}
+      <AnimatePresence>
+        {showMobileHistory && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-50 z-50 lg:hidden"
+            onClick={() => setShowMobileHistory(false)}
+          >
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 20 }}
+              className="absolute right-0 top-0 h-full w-80 bg-white shadow-xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <HistoryPanel 
+                onRecordSelect={handleHistorySelect}
+                className="h-full"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
