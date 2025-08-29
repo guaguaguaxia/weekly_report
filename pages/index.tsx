@@ -12,8 +12,11 @@ import Header from "../components/Header";
 import LoadingDots from "../components/LoadingDots";
 import ResizablePanel from "../components/ResizablePanel";
 import HistoryPanel from "../components/HistoryPanel";
+import TemplateSelect from "../components/TemplateSelect";
+import TemplateManager from "../components/TemplateManager";
 import { marked } from "marked";
 import { HistoryStorage, HistoryRecord } from "../utils/historyStorage";
+import { Template } from "../utils/templateStorage";
 
 const Home: NextPage = () => {
   const t = useTranslations('Index')
@@ -27,6 +30,8 @@ const Home: NextPage = () => {
   const [showMobileHistory, setShowMobileHistory] = useState(false);
   const [historyCount, setHistoryCount] = useState(0);
   const [historyRefreshTrigger, setHistoryRefreshTrigger] = useState(0);
+  const [showTemplateSelect, setShowTemplateSelect] = useState(false);
+  const [showTemplateManager, setShowTemplateManager] = useState(false);
 
   // 更新历史记录数量和触发刷新
   const updateHistoryCount = () => {
@@ -135,6 +140,12 @@ const Home: NextPage = () => {
     setIsFromHistory(false);
   };
 
+  const handleTemplateSelect = (template: Template) => {
+    setChat(template.content);
+    setGeneratedChat("");
+    setIsFromHistory(false);
+  };
+
   return (
     <div className="flex min-h-screen">
       <div className="flex-1 flex flex-col max-w-5xl mx-auto items-center justify-center py-2">
@@ -210,19 +221,40 @@ const Home: NextPage = () => {
             }
           />
 
-          <div className="flex space-x-2 lg:hidden mt-3">
-            <button
-              onClick={() => setShowMobileHistory(!showMobileHistory)}
-              className="flex items-center space-x-2 px-3 py-2 text-sm bg-gray-100 rounded-lg hover:bg-gray-200"
-            >
-              <span>📋</span>
-              <span>历史记录</span>
-              {historyCount > 0 && (
-                <span className="bg-blue-500 text-white text-xs px-2 py-0.5 rounded-full">
-                  {historyCount}
-                </span>
-              )}
-            </button>
+          {/* 模板和历史记录按钮区 */}
+          <div className="flex justify-between items-center mt-3">
+            <div className="flex space-x-2">
+              <button
+                onClick={() => setShowTemplateSelect(true)}
+                className="flex items-center space-x-2 px-3 py-2 text-sm bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors"
+              >
+                <span>📝</span>
+                <span>选择模板</span>
+              </button>
+              <button
+                onClick={() => setShowTemplateManager(true)}
+                className="flex items-center space-x-2 px-3 py-2 text-sm bg-green-50 text-green-600 rounded-lg hover:bg-green-100 transition-colors"
+              >
+                <span>⚙️</span>
+                <span>管理模板</span>
+              </button>
+            </div>
+            
+            {/* 移动端历史记录按钮 */}
+            <div className="lg:hidden">
+              <button
+                onClick={() => setShowMobileHistory(!showMobileHistory)}
+                className="flex items-center space-x-2 px-3 py-2 text-sm bg-gray-100 rounded-lg hover:bg-gray-200"
+              >
+                <span>📋</span>
+                <span>历史记录</span>
+                {historyCount > 0 && (
+                  <span className="bg-blue-500 text-white text-xs px-2 py-0.5 rounded-full">
+                    {historyCount}
+                  </span>
+                )}
+              </button>
+            </div>
           </div>
 
           {!loading && (
@@ -359,6 +391,19 @@ const Home: NextPage = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* 模板选择弹窗 */}
+      <TemplateSelect
+        isOpen={showTemplateSelect}
+        onClose={() => setShowTemplateSelect(false)}
+        onTemplateSelect={handleTemplateSelect}
+      />
+
+      {/* 模板管理弹窗 */}
+      <TemplateManager
+        isOpen={showTemplateManager}
+        onClose={() => setShowTemplateManager(false)}
+      />
     </div>
   );
 };
