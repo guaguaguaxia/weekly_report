@@ -6,9 +6,10 @@ import { marked } from 'marked';
 interface HistoryPanelProps {
   onRecordSelect: (record: HistoryRecord) => void;
   className?: string;
+  refreshTrigger?: number; // 新增：用于触发刷新的prop
 }
 
-const HistoryPanel: React.FC<HistoryPanelProps> = ({ onRecordSelect, className = '' }) => {
+const HistoryPanel: React.FC<HistoryPanelProps> = ({ onRecordSelect, className = '', refreshTrigger }) => {
   const [groupedHistory, setGroupedHistory] = useState<{ [date: string]: HistoryRecord[] }>({});
   const [selectedRecordId, setSelectedRecordId] = useState<string>('');
   const [isVisible, setIsVisible] = useState(true);
@@ -21,6 +22,13 @@ const HistoryPanel: React.FC<HistoryPanelProps> = ({ onRecordSelect, className =
   useEffect(() => {
     loadHistory();
   }, []);
+
+  // 监听 refreshTrigger 变化，触发历史记录刷新
+  useEffect(() => {
+    if (refreshTrigger) {
+      loadHistory();
+    }
+  }, [refreshTrigger]);
 
   const handleRecordClick = (record: HistoryRecord) => {
     setSelectedRecordId(record.id);

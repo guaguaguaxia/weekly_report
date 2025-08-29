@@ -26,10 +26,16 @@ const Home: NextPage = () => {
   const [isFromHistory, setIsFromHistory] = useState(false);
   const [showMobileHistory, setShowMobileHistory] = useState(false);
   const [historyCount, setHistoryCount] = useState(0);
+  const [historyRefreshTrigger, setHistoryRefreshTrigger] = useState(0);
 
-  // 更新历史记录数量
+  // 更新历史记录数量和触发刷新
   const updateHistoryCount = () => {
     setHistoryCount(HistoryStorage.getHistory().length);
+  };
+
+  const triggerHistoryRefresh = () => {
+    setHistoryRefreshTrigger(prev => prev + 1);
+    updateHistoryCount();
   };
 
   // 组件挂载时加载历史记录数量
@@ -114,7 +120,7 @@ const Home: NextPage = () => {
     // 保存到历史记录 - 使用完整的回复内容
     if (fullResponse && chat && !isFromHistory) {
       HistoryStorage.saveRecord(chat, fullResponse);
-      updateHistoryCount(); // 更新历史记录数量
+      triggerHistoryRefresh(); // 触发历史记录刷新
     }
   };
 
@@ -323,6 +329,7 @@ const Home: NextPage = () => {
       <HistoryPanel 
         onRecordSelect={handleHistorySelect}
         className="hidden lg:flex"
+        refreshTrigger={historyRefreshTrigger}
       />
       
       {/* 移动端历史记录面板 */}
@@ -346,6 +353,7 @@ const Home: NextPage = () => {
               <HistoryPanel 
                 onRecordSelect={handleHistorySelect}
                 className="h-full"
+                refreshTrigger={historyRefreshTrigger}
               />
             </motion.div>
           </motion.div>
