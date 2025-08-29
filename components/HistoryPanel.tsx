@@ -84,12 +84,24 @@ const HistoryPanel: React.FC<HistoryPanelProps> = ({ onRecordSelect, className =
         </button>
       </div>
 
+      {/* 隐私说明 */}
+      <div className="bg-blue-50 border-b border-blue-100 p-3">
+        <div className="flex items-start space-x-2 text-xs text-blue-700">
+          <span className="text-sm">🔒</span>
+          <div>
+            <p className="font-medium mb-1">数据仅保存在本地</p>
+            <p className="text-blue-600">所有生成记录只存储在您的浏览器中，不会上传到服务器。清除浏览器数据或更换设备将丢失历史记录。</p>
+          </div>
+        </div>
+      </div>
+
       <div className="flex-1 overflow-y-auto">
         {Object.keys(groupedHistory).length === 0 ? (
           <div className="p-6 text-center text-gray-500">
             <div className="text-4xl mb-2">📝</div>
             <p>暂无历史记录</p>
-            <p className="text-sm mt-1">生成周报后会自动保存</p>
+            <p className="text-sm mt-1">生成周报后会自动保存到本地</p>
+            <p className="text-xs mt-2 text-gray-400">记录仅存储在浏览器中，确保数据隐私</p>
           </div>
         ) : (
           <div className="p-3 space-y-4">
@@ -151,10 +163,13 @@ const HistoryPanel: React.FC<HistoryPanelProps> = ({ onRecordSelect, className =
       </div>
 
       {Object.keys(groupedHistory).length > 0 && (
-        <div className="border-t border-gray-200 p-3">
+        <div className="border-t border-gray-200 p-3 space-y-2">
+          <div className="text-xs text-gray-400 text-center mb-2">
+            💡 数据安全提示：历史记录存储在本地浏览器，不会同步到云端
+          </div>
           <button
             onClick={() => {
-              if (window.confirm('确定要清空所有历史记录吗？')) {
+              if (window.confirm('确定要清空所有历史记录吗？此操作不可恢复。')) {
                 HistoryStorage.clearAllHistory();
                 loadHistory();
                 setSelectedRecordId('');
