@@ -27,16 +27,17 @@ const handler = async (req: Request): Promise<Response> => {
   // }
 
   const payload: OpenAIStreamPayload = {
-    model: "deepseek-v4-flash",
+    model: "deepseek-flash",
     messages: [{ role: "user", content: prompt }],
     temperature: 0.7,
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,
-    max_tokens: 1000,
+    max_tokens: 4096,
     stream: true,
     n: 1,
     api_key,
+    thinking: { type: "disabled" },
   }
 
   const stream = await OpenAIStream(payload);

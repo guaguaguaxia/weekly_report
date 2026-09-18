@@ -3,6 +3,7 @@ import {
   ParsedEvent,
   ReconnectInterval,
 } from "eventsource-parser";
+import { extractDeltaText } from "./extractDeltaText";
 
 export type ChatGPTAgent = "user" | "system";
 
@@ -22,6 +23,9 @@ export interface OpenAIStreamPayload {
   stream: boolean;
   n: number;
   api_key?: string;
+  thinking?: {
+    type: "enabled" | "disabled";
+  };
 }
 
 export async function OpenAIStream(payload: OpenAIStreamPayload) {
@@ -63,11 +67,15 @@ export async function OpenAIStream(payload: OpenAIStreamPayload) {
     body: JSON.stringify(payload),
   });
 
+  if (!res.ok) {
+    const errorText = await res.text();
+    throw new Error(errorText || `DeepSeek API error: ${res.status}`);
+  }
+
   const stream = new ReadableStream({
     async start(controller) {
       // callback
       function onParse(event: ParsedEvent | ReconnectInterval) {
-        console.log(event.type)
         if (event.type === "event") {
           const data = event.data;
           // https://beta.openai.com/docs/api-reference/completions/create#completions/create-stream
@@ -77,8 +85,10 @@ export async function OpenAIStream(payload: OpenAIStreamPayload) {
           }
           try {
             const json = JSON.parse(data);
-            console.log(json)
-            const text = json.choices[0].delta?.content || "";
+            const text = extractDeltaText(json);
+            if (!text) {
+              return;
+            }
             if (counter < 2 && (text.match(/\n/) || []).length) {
               // this is a prefix character (i.e., "\n\n"), do nothing
               return;
@@ -86,9 +96,8 @@ export async function OpenAIStream(payload: OpenAIStreamPayload) {
             const queue = encoder.encode(text);
             controller.enqueue(queue);
             counter++;
-          } catch (e) {
-            // maybe parse error
-            controller.error(e);
+          } catch {
+            // Skip a malformed SSE event instead of aborting the whole report stream.
           }
         }
       }
@@ -96,9 +105,17 @@ export async function OpenAIStream(payload: OpenAIStreamPayload) {
       // stream response (SSE) from OpenAI may be fragmented into multiple chunks
       // this ensures we properly read chunks and invoke an event for each SSE event stream
       const parser = createParser(onParse);
-      // https://web.dev/streams/#asynchronous-iteration
-      for await (const chunk of res.body as any) {
-        parser.feed(decoder.decode(chunk));
+      try {
+        // https://web.dev/streams/#asynchronous-iteration
+        for await (const chunk of res.body as any) {
+          parser.feed(decoder.decode(chunk));
+        }
+      } finally {
+        try {
+          controller.close();
+        } catch {
+          // already closed by [DONE]
+        }
       }
     },
   });

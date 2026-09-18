@@ -71,61 +71,62 @@ const Home: NextPage = () => {
       setLoading(false)
       return
     }
-    const response = useUserKey ?
-      await fetch("/api/generate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          prompt,
-          api_key,
-        }),
-      })
-    :
-      await fetch("/api/generate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          prompt,
-        }),
-      })
+    try {
+      const response = useUserKey ?
+        await fetch("/api/generate", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            prompt,
+            api_key,
+          }),
+        })
+      :
+        await fetch("/api/generate", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            prompt,
+          }),
+        })
 
-    console.log("Edge function returned.");
+      if (!response.ok) {
+        toast.error("服务繁忙，请稍后再试")
+        return
+      }
 
-    if (!response.ok) {
+      // This data is a ReadableStream
+      const data = response.body;
+      if (!data) {
+        return;
+      }
+
+      const reader = data.getReader();
+      const decoder = new TextDecoder();
+      let done = false;
+      let fullResponse = "";
+
+      while (!done) {
+        const { value, done: doneReading } = await reader.read();
+        done = doneReading;
+        const chunkValue = decoder.decode(value).replace("<|im_end|>", "");
+        fullResponse += chunkValue;
+        setGeneratedChat((prev) => prev + chunkValue);
+      }
+
+      // 保存到历史记录 - 使用完整的回复内容
+      if (fullResponse && chat && !isFromHistory) {
+        HistoryStorage.saveRecord(chat, fullResponse);
+        triggerHistoryRefresh(); // 触发历史记录刷新
+      }
+    } catch {
       toast.error("服务繁忙，请稍后再试")
+    } finally {
       setLoading(false);
-      return
-    }
-
-    // This data is a ReadableStream
-    const data = response.body;
-    if (!data) {
-      return;
-    }
-
-    const reader = data.getReader();
-    const decoder = new TextDecoder();
-    let done = false;
-    let fullResponse = "";
-
-    while (!done) {
-      const { value, done: doneReading } = await reader.read();
-      done = doneReading;
-      const chunkValue = decoder.decode(value).replace("<|im_end|>", "");
-      fullResponse += chunkValue;
-      setGeneratedChat((prev) => prev + chunkValue);
-    }
-
-    setLoading(false);
-    
-    // 保存到历史记录 - 使用完整的回复内容
-    if (fullResponse && chat && !isFromHistory) {
-      HistoryStorage.saveRecord(chat, fullResponse);
-      triggerHistoryRefresh(); // 触发历史记录刷新
     }
   };
 
