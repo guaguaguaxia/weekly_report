@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="text-center h-16 sm:h-20 w-full sm:pt-2 pt-4 border-t mt-5 flex sm:flex-row flex-col justify-between items-center px-3 space-y-3 sm:mb-0 mb-3">
+    <footer className="text-center min-h-16 sm:min-h-20 w-full sm:pt-2 pt-4 pb-2 border-t mt-5 flex sm:flex-row flex-col justify-between items-center px-3 space-y-3 sm:mb-0 mb-3">
       <div>
         Powered by{" "}
         <a
@@ -22,6 +22,27 @@ export default function Footer() {
         >
           Vercel Edge Functions.
         </a>
+        <p className="mt-1 text-xs font-normal leading-4 text-slate-400">
+          <a
+            href="https://imagetoexcelai.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-slate-600 hover:underline transition underline-offset-2"
+          >
+            Image to Excel
+          </a>
+          <span className="mx-1.5" aria-hidden="true">
+            ·
+          </span>
+          <a
+            href="https://bankstatementconvertsai.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-slate-600 hover:underline transition underline-offset-2"
+          >
+            Bank Statement Converter
+          </a>
+        </p>
       </div>
       <div className="flex space-x-4 pb-4 sm:pb-0">
         <Link
